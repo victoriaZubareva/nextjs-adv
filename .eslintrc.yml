@@ -1,0 +1,56 @@
+parserOptions:
+  ecmaVersion: 2020
+  sourceType: module
+  ecmaFeatures:
+    impliedStrict: true
+    jsx: true
+    legacyDecorators: true
+
+env:
+  browser: true
+  node: true
+  jest: true
+  es6: true
+
+extends:
+  - airbnb
+
+settings:
+  react:
+    version: detect
+
+rules:
+  indent:
+    - error
+    - 4
+    - SwitchCase: 1
+  react/jsx-indent:
+    - error
+    - 4
+  react/jsx-indent-props:
+    - error
+    - 4
+  react/button-has-type: off
+  react/react-in-jsx-scope: off
+  react/prop-types: off
+  react/jsx-filename-extension: off
+  react/jsx-props-no-spreading: off
+  import/prefer-default-export: off
+  class-methods-use-this: off
+  no-prototype-builtins: off
+  no-shadow: off
+  react/no-danger: off
+  jsx-a11y/anchor-is-valid: off
+  jsx-a11y/click-events-have-key-events: off
+  jsx-a11y/no-static-element-interactions: off
+  jsx-a11y/aria-role: off
+  max-len:
+    - 1
+    - { code: 120 }
+  quote-props:
+    - 1
+    - as-needed
+  jsx-quotes:
+    - 1
+    - prefer-single
+  react/jsx-one-expression-per-line: 0
