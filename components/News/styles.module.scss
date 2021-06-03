@@ -1,0 +1,26 @@
+div.container {
+  & > h2 {
+    font-size: 48px;
+    color: #fff;
+  }
+
+  & div {
+    margin-bottom: 30px;
+
+    & .content,
+    & p {
+      font-size: 24px;
+      margin: 0 0 12px;
+      color: #fff;
+    }
+
+    & .content {
+      font-size: 32px;
+      font-weight: 500;
+    }
+  }
+
+  & > div:last-child {
+    margin-bottom: 60px;
+  }
+}

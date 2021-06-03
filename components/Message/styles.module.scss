@@ -1,0 +1,20 @@
+.container {
+    display: flex;
+    flex-direction: column;
+
+    & h1 {
+        font-size: 48px;
+        color: #fff;
+    }
+
+    & span {
+        color: #f54251;
+        font-weight: 600;
+    }
+
+    & p {
+        font-size: 24px;
+        margin: 0 0 12px;
+        color: #fff;
+    }
+}

@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 16px);
+
+  h1,
+  h2 {
+    font-size: 48px;
+    color: #fff;
+  }
+
+  h2 {
+    & > span {
+      color: #f54251;
+      font-weight: 600;
+    }
+  }
+
+  & a {
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.1s ease;
+
+    &:hover {
+      color: #367dff;
+    }
+
+    & .active {
+      color: #83a3ff;
+    }
+  }
+}

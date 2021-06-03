@@ -1,5 +1,5 @@
-/* Components */
-import { Menu, Message } from '../components';
+// Components
+import { Menu, User } from '../components';
 
 /* Instruments */
 import { destroyTmpStatus } from '../helpers/destroyTmpStatus';
@@ -8,10 +8,10 @@ import { destroyTmpStatus } from '../helpers/destroyTmpStatus';
 import { initializeStore } from '../init/store';
 import { initialDispatcher } from '../init/initialDispatcher';
 
-const Index = () => (
+const UserPage = () => (
     <>
         <Menu />
-        <Message />
+        <User />
     </>
 );
 
@@ -28,4 +28,4 @@ export const getServerSideProps = async (context) => {
     };
 };
 
-export default Index;
+export default UserPage;

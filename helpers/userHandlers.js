@@ -27,19 +27,19 @@ export const handleExistedUser = async (cookies, users) => {
 
 export const handleNewUser = async (ctx, users) => {
     const userId = Math.random().toString(36).substr(2, 9);
-    const user = { userId, visitCounts: 1 };
+    const newUser = { userId, visitCounts: 1 };
 
-    users.push(user);
+    users.push(newUser);
+
     nookies.set(ctx, 'userId', userId, nookiesOptions);
 
     await db.saveUsers(USERS_PATH, users);
 
-    return user;
+    return newUser;
 };
 
 export const getExistedUser = (context, users) => {
     const cookies = nookies.get(context);
-
     const user = users.find((user) => user.userId === cookies.userId);
 
     if (!user) {
