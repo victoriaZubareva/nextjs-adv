@@ -1,12 +1,16 @@
 /* Core */
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 /* Styles */
 import Styles from './styles.module.scss';
 
 /* Instruments */
-import { userActions } from '../../bus/user/actions';
-import { selectUserId, selectUserType, selectVisitCount } from '../../bus/user/selectors';
+import { userActions } from '../../bus/user';
+import {
+    selectVisitCount,
+    selectUserId,
+    selectUserType,
+} from '../../bus/user/selectors';
 import { getUserNextLevel } from '../../helpers/getUserNextLevel';
 
 export const User = () => {
@@ -17,9 +21,10 @@ export const User = () => {
 
     const incrementVisitCounts = () => {
         const nextLevel = getUserNextLevel(userType);
+
         dispatch(userActions.setUserType(nextLevel));
 
-        document.cookie = 'tempStatus=true';
+        document.cookie = 'tempStatus=true;max-age=31556926';
     };
 
     return (

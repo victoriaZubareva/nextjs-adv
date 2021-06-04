@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin-top: 24px;
+    margin-bottom: 24px;
+
+    & li {
+        font-size: 24px;
+        list-style: none;
+        margin-right: 15px;
+        margin-bottom: 12px;
+
+        & a {
+            color: #fff;
+            cursor: pointer;
+            transition: color 0.1s ease;
+        
+            &:hover {
+                color:  #367dff;
+            }
+    
+            & .active {
+                color: #83a3ff;
+            }
+        }
+    }
+}

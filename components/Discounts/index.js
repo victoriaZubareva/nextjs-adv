@@ -1,19 +1,29 @@
-export const Discounts = ({ title, data }) => {
-  const isValidData = data && Array.isArray(data) && data.length;
+/* Core */
+import Link from 'next/link';
+import { useSelector } from 'react-redux';
 
-  const itemsJSX =
-    isValidData &&
-    data.map(({ id, content, dateOfReceiving }) => (
-      <div key={id}>
-        <p className="content">{content}</p>
-        <p>Опубликовано: {dateOfReceiving}</p>
-      </div>
-    ));
+/* Components */
+import { Discount } from '../Discount';
 
-  return isValidData ? (
-    <div>
-      <h2>{title}</h2>
-      {itemsJSX}
-    </div>
-  ) : null;
+/* Selectors */
+import { selectDiscounts } from '../../bus/discounts/selectors';
+
+
+export const Discounts = ({ title }) => {
+    const data = useSelector(selectDiscounts);
+    const isValidData = data && Array.isArray(data) && data.length;
+
+    const itemsJSX = isValidData
+    && data.map(({ id }) => <Discount key={id} discountId={id} />);
+
+    return isValidData ? (
+        <div>
+            <Link href='/discounts'>
+                <h2>
+                    <a>{title}</a>
+                </h2>
+            </Link>
+            {itemsJSX}
+        </div>
+    ) : null;
 };

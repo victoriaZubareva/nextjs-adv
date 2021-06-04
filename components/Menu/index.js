@@ -5,34 +5,24 @@ import { useRouter } from 'next/router';
 /* Styles */
 import Styles from './styles.module.scss';
 
+/* Other */
+import { links } from './links';
+
 export const Menu = () => {
     const router = useRouter();
+    const linksJSX = links.map(({ title, url }) => (
+        <li key={url}>
+            <NextLink href={url}>
+                <a className={router.pathname === url ? Styles.active : ''}>
+                    {title}
+                </a>
+            </NextLink>
+        </li>
+    ));
 
     return (
         <ul className={Styles.container}>
-            <li>
-                <NextLink href='/'>
-                    <a className={router.pathname === '/' ? Styles.active : ''}>
-                        🏡&nbsp;Домой
-                    </a>
-                </NextLink>
-            </li>
-
-            <li>
-                <NextLink href='/dashboard'>
-                    <a className={router.pathname === '/dashboard' ? Styles.active : ''}>
-                        📜&nbsp;Дешборд
-                    </a>
-                </NextLink>
-            </li>
-
-            <li>
-                <NextLink href='/user'>
-                    <a className={router.pathname === '/user' ? Styles.active : ''}>
-                        🤷🏼‍♂️&nbsp;Профиль
-                    </a>
-                </NextLink>
-            </li>
+            {linksJSX}
         </ul>
     );
 };
